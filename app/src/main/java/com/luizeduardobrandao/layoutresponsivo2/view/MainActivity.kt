@@ -7,6 +7,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.luizeduardobrandao.layoutresponsivo2.R
 import com.luizeduardobrandao.layoutresponsivo2.databinding.ActivityMainBinding
+import com.luizeduardobrandao.layoutresponsivo2.helper.BannerAds
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,5 +29,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // inicializa SDK
+        BannerAds.initialize(this)
+
+        // carrega o banner no container da view binding
+        BannerAds.loadBanner(this, binding.frameBanner)
     }
 }
