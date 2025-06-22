@@ -2,4 +2,18 @@
     <string name="app_name">LayoutResponsivo2</string>
 
     <string name="title_toolbar">App Curso</string>
+
+    <string name="text_hello_name">Olá nome e sobrenome!</string>
+    <string name="text_learn_today">O que vamos aprender hoje?</string>
+
+    <string name="cont_image_development">Image Development</string>
+    <string name="cont_image_design">Image Design</string>
+    <string name="cont_image_ai">Image Ai</string>
+    <string name="cont_image_explore">Image Explore</string>
+    <string name="cont_ic_android">Ícone Android</string>
+
+    <string name="text_popular_courses">Cursos populares</string>
+    <string name="text_see_all">Ver todos</string>
+    <string name="text_android_development">Desenvolvimento Android</string>
+
 </resources>
