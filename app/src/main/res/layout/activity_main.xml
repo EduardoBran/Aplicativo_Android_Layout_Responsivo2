@@ -7,18 +7,170 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
+    <!-- 1. Toolbar fixa no topo -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="0dp"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:title="@string/title_toolbar"
-        app:titleTextColor="@color/white"/>
+        app:titleTextColor="@color/white" />
+
+    <!-- Conteúdo rolável verticalmente -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toTopOf="@id/frameBanner"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16sp">
+
+            <!-- 1. Saudação -->
+            <TextView
+                android:id="@+id/textviewHello"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/text_hello_name"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- 2. Título -->
+            <TextView
+                android:id="@+id/textviewLearn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/text_learn_today"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textviewHello" />
+
+            <ImageView
+                android:id="@+id/imageview_development"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="24dp"
+                android:contentDescription="@string/cont_image_development"
+                android:src="@drawable/image_development"
+                app:layout_constraintEnd_toStartOf="@+id/imageview_design"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textviewLearn" />
+
+            <ImageView
+                android:id="@+id/imageview_design"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="0dp"
+                android:contentDescription="@string/cont_image_design"
+                android:src="@drawable/image_design"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageview_development"
+                app:layout_constraintTop_toBottomOf="@+id/textviewLearn" />
 
 
+            <ImageView
+                android:id="@+id/imageview_ai"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="24dp"
+                android:contentDescription="@string/cont_image_ai"
+                android:src="@drawable/image_ai"
+                app:layout_constraintEnd_toStartOf="@+id/imageview_explore"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageview_development" />
 
-    
+            <ImageView
+                android:id="@+id/imageview_explore"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="0dp"
+                android:contentDescription="@string/cont_image_explore"
+                android:src="@drawable/image_explore"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageview_ai"
+                app:layout_constraintTop_toBottomOf="@+id/imageview_design" />
+
+            <TextView
+                android:id="@+id/textview_popular_course"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/text_popular_courses"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageview_ai" />
+
+            <TextView
+                android:id="@+id/textview_see_all"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/text_see_all"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageview_ai" />
+
+            <View
+                android:id="@+id/view_courses"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/image_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_popular_course" />
+
+            <TextView
+                android:id="@+id/textview_android_development"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Desenvolvimento Android"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/view_courses"
+                app:layout_constraintStart_toStartOf="@+id/view_courses"
+                app:layout_constraintTop_toTopOf="@+id/view_courses" />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/ic_android"
+                app:layout_constraintBottom_toBottomOf="@+id/view_courses"
+                app:layout_constraintEnd_toEndOf="@+id/view_courses"
+                app:layout_constraintTop_toTopOf="@+id/view_courses"
+                app:tint="@color/white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+    <!-- FrameLayout fixo para AdMob -->
+    <FrameLayout
+        android:id="@+id/frameBanner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
