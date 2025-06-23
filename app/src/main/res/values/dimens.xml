@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    
+    <!-- margem geral do bloco de conteúdo (ConstraintLayout interno) -->
+    <dimen name="content_margin">16dp</dimen>
+
+    <!-- margens horizontais das imagens -->
+    <dimen name="image_margin_start">0dp</dimen>
+    <dimen name="image_margin_end">0dp</dimen>
+
+    <!-- margen top das imagens -->
+    <dimen name="margin_top_images">24dp</dimen>
+
+    <!-- tamanho (largura/altura) das imagens principais -->
+    <dimen name="main_image_size">150dp</dimen>
+
+    <!-- tamanho da View que mostra o curso popular -->
+    <dimen name="course_view_height">64dp</dimen>
+
+    <!-- tamanho (largura/altura) do ícone dentro da view de curso -->
+    <dimen name="course_icon_size">48dp</dimen>
+
+    <!-- tamanhos de texto -->
+    <dimen name="text_size_hello">18sp</dimen>
+    <dimen name="text_size_learn">22sp</dimen>
+    <dimen name="text_size_popular_course">18sp</dimen>
+    <dimen name="text_size_see_all">18sp</dimen>
+    <dimen name="text_size_android_development">16sp</dimen>
 </resources>
