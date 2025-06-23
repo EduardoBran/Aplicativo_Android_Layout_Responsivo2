@@ -2,6 +2,7 @@ package com.luizeduardobrandao.layoutresponsivo2.helper
 
 import android.content.Context
 import android.view.ViewGroup
+import android.view.ViewTreeObserver
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.AdSize
 import com.google.android.gms.ads.AdView
@@ -24,20 +25,37 @@ object BannerAds {
      * @param container ViewGroup onde o banner será inserido
      */
     fun loadBanner(context: Context, container: ViewGroup) {
-        // se já houver algo, limpa
-        container.removeAllViews()
+        // garante que vamos ter width correto
+        container.viewTreeObserver.addOnGlobalLayoutListener(object:
+            ViewTreeObserver.OnGlobalLayoutListener {
+            override fun onGlobalLayout() {
+                // remove listener
+                container.viewTreeObserver.removeOnGlobalLayoutListener(this)
 
-        // cria e configura o AdView
-        val adView = AdView(context).apply {
-            setAdSize(AdSize.BANNER)            // usa o setter em vez de atribuir à val
-            adUnitId = TEST_BANNER_UNIT_ID
-        }
+                // calcula largura disponível em dp
+                val metrics = container.context.resources.displayMetrics
+                val adWidthDp = (container.width / metrics.density).toInt()
 
-        // adiciona ao layout
-        container.addView(adView)
+                // obtém AdSize adaptativo baseado nessa largura
+                val adSize = AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(
+                    container.context,
+                    adWidthDp
+                )
 
-        // carrega o anúncioAdd commentMore actions
-        val adRequest = AdRequest.Builder().build()
-        adView.loadAd(adRequest)
+                // prepara o AdView
+                val adView = AdView(container.context).apply {
+                    adUnitId = TEST_BANNER_UNIT_ID
+                    setAdSize(adSize)
+                }
+
+                // carrega no container
+                container.removeAllViews()
+                container.addView(adView)
+
+                // faz o request
+                val request = AdRequest.Builder().build()
+                adView.loadAd(request)
+            }
+        })
     }
 }
