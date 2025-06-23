@@ -10,13 +10,15 @@
     <!-- 1. Toolbar fixa no topo -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
+        style="@style/Widget.MyApp.Toolbar"
         android:layout_width="0dp"
-        android:layout_height="?attr/actionBarSize"
+        android:layout_height="@dimen/toolbar_height"
         android:background="?attr/colorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="@string/title_toolbar"
+        app:titleTextAppearance="@style/TextAppearance.MyApp.Toolbar.Title"
         app:titleTextColor="@color/white" />
 
     <!-- Conteúdo rolável verticalmente -->
