@@ -9,8 +9,6 @@
 
     <!-- Style do toolbar -->
     <style name="Widget.MyApp.Toolbar" parent="Widget.MaterialComponents.Toolbar">
-        <!-- altura variavel via dimens -->
-        <item name="android:layout_height">@dimen/toolbar_height</item>
         <!-- texto do titulo tambem via dimens -->
         <item name="titleTextAppearance">@style/TextAppearance.MyApp.Toolbar.Title</item>
     </style>

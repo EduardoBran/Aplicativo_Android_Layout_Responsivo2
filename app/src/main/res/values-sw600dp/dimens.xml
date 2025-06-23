@@ -2,8 +2,7 @@
 <resources>
 
     <!-- Toolbar -->
-    <dimen name="toolbar_height">72dp</dimen>
-    <dimen name="toolbar_title_text_size">32sp</dimen>
+    <dimen name="toolbar_title_text_size">28sp</dimen>
 
     <!-- margem geral do bloco de conteúdo (ConstraintLayout interno) -->
     <dimen name="content_margin">16dp</dimen>
